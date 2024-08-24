@@ -73,15 +73,15 @@ class SyncThread implements Runnable {
 class semforoBinario {
     private boolean available = true;
 
-    public synchronized void acquire() throws InterruptedException {
-        while (!available) {
-            wait();
-        }
-        available = false;
+public synchronized void acquire() throws InterruptedException {
+    while (!available) {
+        wait();
     }
+    available = false;
+}
 
-    public synchronized void release() {
-        available = true;
-        notify();
-    }
+public synchronized void release() {
+    available = true;
+    notify();
+}
 }
